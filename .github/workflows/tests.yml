@@ -44,6 +44,9 @@ jobs:
           sed -i "s/<source><\/source>/<source>\/github\/workspace<\/source>/g" coverage.xml
           sed -i "s/<source>tests/<source>\/github\/workspace\/tests/g" coverage.xml
 
+      - name: Debug coverage modified
+        run: head -n 20 coverage.xml
+
       - name: SonarCloud Scan
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
