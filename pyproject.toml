@@ -40,7 +40,7 @@ pythonpath = ["src"]
 
 [tool.coverage.run]
 branch = true
-relative_files = true
+relative_files = false
 
 [tool.coverage.report]
 show_missing = true
