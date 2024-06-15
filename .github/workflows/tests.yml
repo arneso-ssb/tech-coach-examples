@@ -41,7 +41,8 @@ jobs:
       # Replace root path with /github/workspace (mounted in docker container).
       - name: Override coverage source paths for SonarCloud
         run: |
-          sed -i "s/<source>\/home\/runner\/work\/tech-coach-examples\/tech-coach-examples/<source>\/github\/workspace/g" coverage.xml
+          sed -i "s/<source><\/source>/<source>\/github\/workspace<\/source>/g" coverage.xml
+          sed -i "s/<source>tests/<source>\/github\/workspace\/tests/g" coverage.xml
 
       - name: Debug coverage modified
         run: head -n 20 coverage.xml
