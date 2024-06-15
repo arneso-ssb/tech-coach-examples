@@ -15,6 +15,7 @@ import pyarrow.parquet as pq
 
 def create_files() -> None:
     """Create parquet file stored with different index options."""
+    print("Running create_files")
     data_dir = Path(__file__).parent / "dataset"
     csv_file = data_dir / "customers.csv"
     pandas_df = pd.read_csv(csv_file, parse_dates=["RegistrationDate"])
@@ -49,6 +50,7 @@ def load_file_pyarrow(name: str) -> pq.ParquetFile:
     Args:
         name: Name of the file without the .parquet suffix
     """
+    print("Running load_file_pyarrow")
     data_dir = Path(__file__).parent / "dataset"
     file_path = data_dir / f"{name}.parquet"
     print(f"Loading file: {file_path.name}")
